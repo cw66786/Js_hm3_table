@@ -9,18 +9,29 @@ const data = [
   { region: "CA", model: "B", sales: 100 },
   { region: "CA", model: "C", sales: 230 },
   { region: "CA", model: "D", sales: 400 },
+  
 ];
 
 const table = document.getElementById("table");
 
-console.log(table.getElementsByClassName("US"))
 
-const tableData = (d) => {
+let sums = {}
+
+data.forEach(e => {
+    if(sums[e.region]) {
+        sums[e.region] = sums[e.region]+e.sales
+    } else {
+        sums[e.region] = e.sales
+    }
+})
+
+
+const setTableData = (d,sum) => {
   for (let el in d) {
     let region = d[el].region;
 
     let newChild = `<tbody class="${region}">
-                    <tr><td>${region}</td><td>Sum</td><td>Sum</td></tr></tbody>`;
+                    <tr class="sumRow"><td>${region}</td><td>Sum</td><td>${sum[region]}</td></tr></tbody>`;
 
     let newRow = `<tr><td>${region}</td><td>${d[el].model}
                     </td><td>${d[el].sales}</td</tr>`;
@@ -36,4 +47,4 @@ const tableData = (d) => {
 };
 
 
-tableData(data);
+setTableData(data,sums);

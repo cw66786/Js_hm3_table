@@ -21,6 +21,7 @@
     top: 20vh;
 }
 
+
 .table,
 tr,
 th,
@@ -35,6 +36,20 @@ td
 th {
     
     height: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
 
 }
+
+.sumRow {
+    background-color: black;
+    color: white;
+}
+
+tr:hover{
+    background-color: blue;
+    color: white;
+}
+
+
 
