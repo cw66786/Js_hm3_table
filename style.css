@@ -23,7 +23,9 @@
 
 .table,
 tr,
-th{
+th,
+td
+{
     border: 2px solid black;
     border-collapse: collapse;
     text-align: center;
